@@ -6,7 +6,7 @@ A simple, responsive static website that provides information about chocolate �
 
 ## Live Preview
 
-Open `index.html` directly in any modern web browser to view the site.
+Run the container and visit `http://localhost:8080` in any modern web browser.
 
 ---
 
@@ -19,6 +19,7 @@ chocolate-website/
 ├── script.js         # Dynamically renders chocolate type cards
 ├── Chocolate 1.jpg   # Image used in the intro section
 ├── Chocolate 2.jpg   # Image used in the fun facts section
+├── Dockerfile        # Container definition (nginx:alpine)
 └── README.md
 ```
 
@@ -54,12 +55,14 @@ chocolate-website/
 | HTML5 | Page structure and content |
 | CSS3 | Styling, layout (Flexbox), and responsive design |
 | JavaScript (ES6) | Dynamic rendering of chocolate type cards |
+| Docker | Containerisation |
+| Nginx (Alpine) | Static file serving inside the container |
 
 ---
 
 ## Getting Started
 
-No build tools or installations required.
+Requires [Docker](https://docs.docker.com/get-docker/) to be installed.
 
 1. Clone or download the repository:
    ```bash
@@ -69,17 +72,21 @@ No build tools or installations required.
    ```bash
    cd chocolate-website
    ```
-3. Open `index.html` in your browser:
+3. Build the Docker image:
    ```bash
-   # macOS
-   open index.html
-
-   # Windows
-   start index.html
-
-   # Linux
-   xdg-open index.html
+   docker build -t chocolate-website .
    ```
+4. Run the container:
+   ```bash
+   docker run -d -p 8080:80 chocolate-website
+   ```
+5. Open `http://localhost:8080` in your browser.
+
+To stop the container:
+```bash
+docker ps                        # find the container ID
+docker stop <container-id>
+```
 
 ---
 
