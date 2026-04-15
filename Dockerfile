@@ -9,7 +9,7 @@ RUN rm -rf /usr/share/nginx/html/*
 
 # copy all our website files to the nginx directory
 
-COPY . /user/share/nginx/html
+COPY . /usr/share/nginx/html
 
 # expose a port
 
